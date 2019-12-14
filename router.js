@@ -23,24 +23,14 @@ router.post('/results', encodedParser, (req,res) => {
 
 //Takes the json file and res.body as parameters, then uses that data
 //to search through the json objects for a match
-//(req.body is the info passed to the post route from the searchForm form in the body)
+//(req.body is the info passed to the post route (/results) from the searchForm form in the body)
 function returnResults(json, body){
   var results = []
   json.forEach((course) => {
-    var lowerCaseTitle = course.title.toLowerCase()
-    var lowerCaseCode = course.course_code.toLowerCase()
-    var lowerCaseInstructor = course.instructor.toLowerCase()
-    var lowerCaseType = course.type.toLowerCase()
-    if (course.title.includes(body.input) || lowerCaseTitle.includes(body.input)) {
-      results.push(course)
-    }
-    if(course.course_code.includes(body.input) || lowerCaseCode.includes(body.input)){
-      results.push(course)
-    }
-    if(course.instructor.includes(body.input) || lowerCaseInstructor.includes(body.input)){
-      results.push(course)
-    }
-    if(course.type.includes(body.input) || lowerCaseType.includes(body.input)){
+    if (course.title.toLowerCase().includes(body.input.toLowerCase())
+    || course.course_code.toLowerCase().includes(body.input.toLowerCase())
+    || course.instructor.toLowerCase().includes(body.input.toLowerCase())
+    || course.type.toLowerCase().includes(body.input.toLowerCase())) {
       results.push(course)
     }
 
