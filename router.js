@@ -12,40 +12,35 @@ router.get('/', encodedParser, (req, res) => {
   res.render('index.ejs', {data: data})
 })
 
-//Access to the req.body comes from the body-parser module
-router.get('/results', (req,res) => {
-  console.log(req.query);
-  console.log(req.body);
-  var results = returnResults(data, req.query)
-  res.render('results.ejs', {data: results})
-})
+//Access to req.body comes from the body-parser module
 
 router.post('/results', encodedParser, (req,res) => {
   console.log(req.body);
   console.log(req.query);
-  var results = returnResults(data, req.query)
+  var results = returnResults(data, req.body)
   res.render('results.ejs', {data: results})
 })
 
-//Takes the json file and res.query as input,
-//then returns an array of json objects including that res.query
-function returnResults(json, input){
+//Takes the json file and res.body as parameters, then uses that data
+//to search through the json objects for a match
+//(req.body is the info passed to the post route from the searchForm form in the body)
+function returnResults(json, body){
   var results = []
   json.forEach((course) => {
     var lowerCaseTitle = course.title.toLowerCase()
     var lowerCaseCode = course.course_code.toLowerCase()
     var lowerCaseInstructor = course.instructor.toLowerCase()
     var lowerCaseType = course.type.toLowerCase()
-    if (course.title.includes(input.title) || lowerCaseTitle.includes(input.title)) {
+    if (course.title.includes(body.input) || lowerCaseTitle.includes(body.input)) {
       results.push(course)
     }
-    if(course.course_code.includes(input.course_code) || lowerCaseCode.includes(input.course_code)){
+    if(course.course_code.includes(body.input) || lowerCaseCode.includes(body.input)){
       results.push(course)
     }
-    if(course.instructor.includes(input.instructor) || lowerCaseInstructor.includes(input.instructor)){
+    if(course.instructor.includes(body.input) || lowerCaseInstructor.includes(body.input)){
       results.push(course)
     }
-    if(course.type.includes(input.type) || lowerCaseType.includes(input.type)){
+    if(course.type.includes(body.input) || lowerCaseType.includes(body.input)){
       results.push(course)
     }
 

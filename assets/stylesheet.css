@@ -21,6 +21,7 @@
 
 .filters{
   margin-left: 15%;
+  margin-bottom: 40px;
 }
 
 .hidden{
@@ -30,6 +31,7 @@
 .allCoursesButton{
   float: right;
   margin-right: 15%;
+  margin-bottom: 100px;
   display: inline-block;
 }
 

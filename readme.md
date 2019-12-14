@@ -7,7 +7,7 @@ express,
 body-parser
 
 To Clone, Run, Test application:
-git clone https://github.com/Jajhoey/CUS-1172-Final.git
+git clone https://github.com/Jajhoey/Jajhoey-CUS-1172-Final.git
 navigate to project folder in cmd and use 'node app.js'
 hosted locally on 127.0.0.1:3000
 
