@@ -3,12 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/bootstrap.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/stylesheet.css" type="text/css">
-    <script type="text/javascript" src="/assets/script.js">
-
-    </script>
-    <title>SJU Courses</title>
+    <script type="text/javascript" src="/assets/script.js"></script>
+    <title>SJU Course Lookup Results</title>
   </head>
   <body>
     <div class="sjuLogo">
@@ -20,13 +18,14 @@
       <h5>The Lesley H. and William L. Collins College of Professional Studies</h5>
     </div>
 
+    <!--EJS Syntax-->
     <div id = "allCourses" class="courses">
       <% data.forEach((course) => { %>
         <ul> <strong><%= course.title %> </strong>
           <li><%= course.course_code %></li>
           <li><%= course.instructor %></li>
           <li><%= course.day %></li>
-          <li><%= course.seats_available %></li>
+          <li>Seats: <%= course.seats_available %></li>
           <li><%= course.type %></li>
         </ul>
       <% }) %>

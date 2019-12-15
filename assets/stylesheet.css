@@ -65,3 +65,11 @@
   display: inline-block;
   margin-left: 15%;
 }
+
+#allCoursesButton{
+  font-size: 16pt;
+}
+
+#findCourses{
+  font-size: 16pt;
+}

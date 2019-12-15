@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //Variables
   var filters = document.querySelector('.filters')
   var allCoursesDiv = document.getElementById('allCourses')
-  var searchForm = document.getElementById('searchForm')
-  var searchInput = document.getElementById('searchInput')
-  var searchButton = document.getElementById('searchButton')
   var allCoursesButton = document.getElementById('allCoursesButton')
   var findCoursesButton = document.getElementById('findCourses')
   var alreadyClicked1 = 0
