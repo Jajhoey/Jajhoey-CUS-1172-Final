@@ -14,4 +14,4 @@ var router = require('./router.js')
 app.use('/', router)
 app.use('/results', router)
 
-app.listen(3000, () => {console.log('App listening on port 3000...')})
+app.set('port', process.env.PORT || 3000)
