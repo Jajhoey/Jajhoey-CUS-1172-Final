@@ -14,4 +14,4 @@ var router = require('./router.js')
 app.use('/', router)
 app.use('/results', router)
 
-app.listen('port', process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000 || '0.0.0.0')
